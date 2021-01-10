@@ -7,6 +7,22 @@ from PIL import ImageGrab
 #image_save = "final_pics"
 
 
+    
+
+
+window=Tk()
+window.title("Answer")
+window.geometry("200x200+700+100")
+heading=Label(window,text="Answer", font="times 20 bold")
+heading.pack()
+answer=Label(window,text="?", font="times 60 bold")
+answer.pack()
+
+def labeler(n):
+    answer["text"]=str(n)
+
+    
+
 Class_map={
     0:"0",
     1:"1",
@@ -24,6 +40,7 @@ def mapper(val):
     return Class_map[val]
 
 
+
 def predictimg():
     image_drawn = ImageGrab.grab(bbox=(160,175,800,550))
 
@@ -37,11 +54,16 @@ def predictimg():
     img_digit_name = mapper(img_code)
 
     print(img_digit_name)
+    labeler(img_digit_name)
+    
 
 def destroy():
+    window.destroy()
     master.destroy()
+    
 
 def clear():
+    answer["text"]="?"
     canvas.delete("all")
 
 
@@ -78,4 +100,4 @@ exit_button.place(x=270, y=310)
 clear_button = Button(master, text="Clear Canvas", command = clear)
 clear_button.place(x=320, y=310)
 mainloop()
-
+window.mainloop()
