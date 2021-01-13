@@ -53,7 +53,7 @@ def predictimg():
     img_code = np.argmax(pred[0])
     img_digit_name = mapper(img_code)
 
-    print(img_digit_name)
+    #print(img_digit_name)
     labeler(img_digit_name)
     
 
